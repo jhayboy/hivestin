@@ -7,9 +7,9 @@ import { sendEmail } from '@/lib/mail';
 
 export async function GET(request) {
   try {
-    // Verify cron secret
-    const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    // Instead of checking Authorization header
+    const authKey = new URL(request.url).searchParams.get('auth_key');
+    if (authKey !== process.env.CRON_SECRET) {
       return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
 
