@@ -7,10 +7,6 @@
     {
       "path": "/api/cron/update-roi?auth_key=${CRON_SECRET}",
       "schedule": "0 0 * * 0"
-    },
-    {
-      "path": "/api/cron/send-meet-links?auth_key=${CRON_SECRET}",
-      "schedule": "* * * * *"
     }
   ],
   "headers": [
